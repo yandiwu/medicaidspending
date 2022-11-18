@@ -43,19 +43,18 @@ In February of 2016, the FDA approved Harvani, a new drug used to treat Hepatiti
 
 <br>
 Vyvanse, which treats ADHD and binge-eating disorders, sat in the top five for all five years. Latuda, an antipsychotic used to treat schizoprenia, consistently ranked in the top ten sources of Medicaid spending and topped the list in 2019 and 2020 (see discussion in generic brands section). There were no other drugs that appeared in the top ten list all 5 years, but a two appeared 4 out of the 5 years: Lyrica, a nerve pain medication that can treat seizures and Humira Pen, an immunosuppressive drug used to treat arthritis that topped the list in 2017 and 2018. While Lyrica only costs $32 per unit, Humira Pen cost over $1,900 in 2016, and each claim averaged to about $4,500. The price increased over the years as well. 
-<br> 
 
+<br> 
 The following bar illustrates that a handful of health problems dominated medicare spending. Notably, brands that treat schizoprenia and lucid disorders sat in the top three in both 2019 and 2020. Over one quarter of the top ten brands treat lucid disorders. Almost one fifth of the spots were occupied by insulin sources. 
 
-<img width="747" alt="Screen Shot 2022-11-17 at 4 45 09 PM" src="https://user-images.githubusercontent.com/74522146/202576150-dfe7046d-754b-4151-afe4-9927df7011a7.png">
+<br>
+ <img width="634" alt="Screen Shot 2022-11-18 at 2 33 13 AM" src="https://user-images.githubusercontent.com/74522146/202657203-6404b3f8-d24b-44eb-8200-7b98ec2ebaca.png">
 
 The following quote from the [Kaiser Family Foundation](https://www.kff.org/medicaid/issue-brief/medicaids-role-in-financing-behavioral-health-services-for-low-income-individuals/) suggests a reason behind the dominance of antipsychotics in the list:
 <br>
 "As a major source of insurance coverage for low-income Americans, and as the only source of funding for some specialized behavioral health services, Medicaid plays a key role in covering and financing behavioral health care. In 2015, Medicaid covered 21% of adults with mental illness, 26% of adults with serious mental illness (SMI), and 17% of adults with SUD. In comparison, Medicaid covered 14% of the general adult population."
 
-<br>
- <img width="634" alt="Screen Shot 2022-11-18 at 2 33 13 AM" src="https://user-images.githubusercontent.com/74522146/202657203-6404b3f8-d24b-44eb-8200-7b98ec2ebaca.png">
-
+<img width="747" alt="Screen Shot 2022-11-17 at 4 45 09 PM" src="https://user-images.githubusercontent.com/74522146/202576150-dfe7046d-754b-4151-afe4-9927df7011a7.png">
 
 ### Top generic brands
 
@@ -82,9 +81,9 @@ The data is very skewed, exhibiting tail heavy behavior. This can be seen from t
 
 ## Spending Prediction 
 
-We use a wide variety of common models to predict Medicaid spending in 2020 based on brand, generic, and manufacturer name and the number of doses, claims, cost per dosage, etc. from 2019. The models were trained on data from 2016 - 2019. As a measure of accuracy, we choose median absolute error (MSE), which is more robust to skewed data than standard mean-based measures of accuracy. Overall, the decision tree classifier, which is more robust than the other models when the data is skewed, performed the best, with a MSE of around 100,000. While this is still not a great number, the median spending per entry was over 300,000, so the prediction on average estimated within 33% of the true value. Furthermore, the $R^2$ score came close to 90 percent, which suggests the model is a good fit for the test data. A summary of the results is shown below. 
+We use a wide variety of common models to predict Medicaid spending in 2020 based on brand, generic, and manufacturer name and the number of doses, claims, cost per dosage, etc. from 2019. The models were trained on data from 2016 - 2019. As a measure of accuracy, we choose median absolute error (MAE), which is more robust to skewed data than standard mean-based measures of accuracy. Overall, the decision tree classifier, which is more robust than the other models when the data is skewed, performed the best, with a MSE of around 100,000. While this is still not a great number, the median spending per entry was over 300,000, so the prediction on average estimated within 33% of the true value. Furthermore, the $R^2$ score came close to 90 percent, which suggests the model is a good fit for the test data. A summary of the results is shown below. 
 
-| Model | MSE | R2 Score | 
+| Model | MAE | R2 Score | 
 | --- | --- | --- |
 | Decision Tree | 97871 | 0.8714 |
 | Decision Tree + Bagging | 98657 | 0.8888 |
